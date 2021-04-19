@@ -10,35 +10,60 @@ soup = BeautifulSoup(response.text, 'html.parser')
 
 
 # Headlines
-headline = soup.find_all('span', {'class': 'mw-headline'})
+# headline = soup.find_all('span', {'class': 'mw-headline'})
 
-# for head in headline[1:-3]:
-#     print(head.text)
+# # for head in headline[1:-3]:
+# #     print(head.text)
 
 
-tables = soup.find_all('table', {'class': 'wikitable'})
+tables = soup.find_all('table', {'class': 'wikitable'})[1:]
 
-for table in tables[1:2]:
-    rows = table.find_all('tr')
-    columns = [v.text.replace('\n', '') for v in rows[0].find_all('th')]
-    for i in rows[1:]:
-        tds = rows[i].find_all('td')
+df = pd.DataFrame(data=tables)
 
-        values = [tds[0].text, tds[1].text, tds[2].text, '', tds[4].text, tds[5].text]
-#     #     row = [v.text.replace('\n', '') for v in row.find_all('th')]
-#     #     print(row)
-# df = pd.DataFrame(columns=columns)
+#All tables
+for i, table in enumerate(tables):
+    print("#"*10 + "Table {}".format(i) + "#"*10)
+    print(table.text)
+    print('.'*80)
+print("#"*80)
+
+
+# for tn, table in enumerate(tables):
+#     rows = table.find_all("tr")
+#     row_lenght = [len(r.find_all(['th', 'td'])) for r in rows]
     
-    print(columns)
-    print(values)
-# print(df)
+    
+    # ncols = max(row_lenght)
+    # nrows = len(rows)
+    # data = []
+    # for i in range(nrows):
+    #     rowD = []
+    #     for j in range(ncols):
+    #         rowD.append('')
+    #     data.append(rowD)
 
-# for i in range(1, len(rows)):
-#     tds = rows[1].find_all('td')
+    # for i in range(len(rows)):
+    #     row = rows[i]
+    #     rowD = []
+    #     cells = row.find_all(['td', 'th'])
+    #     for j in range(len(cells)):
+    #         cell = cells[j]
 
-#     # if len(tds) == 6:
-#     #     values = [tds[0].text, tds[1].text, tds[2].text, '', tds[4].text, tds[5].text]
-#     # else:
+    #         #lots of cells span cols
+    #         cspan = int(cell.get('colspan', 1))
+    #         rspan = int(cell.get('rowspan', 1))
+    #         l = 0
+    #         for k in range(rspan):
+    #             while data[i + k][j + l]:
+    #                 l += 1
+    #             for m in range(cspan):
+    #                 cell_n = j + l + m
+    #                 row_n = i + k
+                   
 
-#     print(tds)
+    #     data.append(rowD)
+# for row in rows:
+#     ticker = row.find_all('td')[0].text
+#     tickers.append(ticker[:-1])
 
+# print(rows)
