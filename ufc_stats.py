@@ -8,7 +8,6 @@ response = requests.get(wiki_url)
 soup = BeautifulSoup(response.text, 'html.parser')
 
 
-
 # Headlines
 # headline = soup.find_all('span', {'class': 'mw-headline'})
 
