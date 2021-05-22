@@ -37,7 +37,6 @@ wedges, texts, autotexts = ax.pie(array_score, autopct=lambda pct: func(pct, arr
                                   textprops=dict(color="w"), explode=explode)
 
 
-
 ax.legend(wedges, labels,
           title="Score",
           loc="center left",
