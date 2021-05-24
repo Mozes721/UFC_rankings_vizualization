@@ -12,7 +12,6 @@ wb = load_workbook(filename = 'UFC_rankings.xlsx')
 for sheet in wb.sheetnames:
     sheet_names.append(sheet)
 
-print(sheet_names)
 
 mpp = pd.read_excel("UFC_rankings.xlsx", sheet_name="Men's pound-for-pound")
 
