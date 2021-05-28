@@ -85,3 +85,4 @@ plt.bar(ypos - 0.2, record_wins, 0.4, label = 'Wins', color='g')
 plt.bar(ypos + 0.2, record_losses, 0.4, label = 'Losses', color='r')
 plt.legend()
 plt.show()
+
