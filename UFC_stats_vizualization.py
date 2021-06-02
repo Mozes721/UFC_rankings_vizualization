@@ -1,10 +1,4 @@
-import bar_chart
-import matplotlib.pyplot as plt
-from openpyxl import Workbook, load_workbook
-import pandas as pd
-import numpy as np
-import xlrd
-import re
+from openpyxl import load_workbook
 from bar_chart import bar_graph
 from pie_chart import pie_chart
 
