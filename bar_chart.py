@@ -5,20 +5,17 @@ import numpy as np
 import re
 
 def bar_graph(sheet):
-    print("Found: " + sheet)
-    #get just the fighter and Record
+    print("Found sheet by the name of " + sheet)
+    #get just the fighter and the record
     sheet_name = pd.read_excel("UFC_rankings.xlsx", sheet_name=sheet)
-    pvp = sheet_name.iloc[:, 1:3]
-    top10 = pvp.head(11)
+    #get top 10
+    top10 = sheet_name.head(11) 
     #change to Dataframe
     df = pd.DataFrame(top10)
-    #adjust record values in dataframe
-    ndf = df.applymap(lambda x: re.sub("\(.*?-\)", "", x))
-
     figher_array = []
     record = []
     #assign dataframe values in its corresponding array variable
-    for index, row in ndf.iterrows():
+    for index, row in df.iterrows():
         print(row["Fighter"], row["Record"])
         figher_array.append(row["Fighter"])
         #use regex to just allow numbers being passed in otherwise whitespace it
@@ -41,8 +38,6 @@ def bar_graph(sheet):
     record_wins = [int(x) for x in wins]
     record_losses = [int(x) for x in losses]
     
-    # #no iterateors are passed
-    record = zip()
     #two iterables are passed in
     record = zip(record_wins, record_losses)
 
@@ -51,7 +46,7 @@ def bar_graph(sheet):
 
     plt.title(sheet)
     plt.xticks(ypos, figher_array)
-    plt.xlabel("Fighters", fontsize=12)
+    plt.xlabel("Fighters")
     plt.ylabel("UFC Record")
     wins = plt.bar(ypos - 0.2, record_wins, 0.4, label = "Wins", color="g")
     losses = plt.bar(ypos + 0.2, record_losses, 0.4, label = "Losses", color="r")

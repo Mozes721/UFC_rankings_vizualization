@@ -19,7 +19,6 @@ print(sheet_names)
 
 def choose_sheet():
     sheet_input = input("Please choose one of the fighter rankings for displaying bar chart: ")
-    #if sheet in load_workbook(filename = 'UFC_rankings.xlsx', sheet_names=)
     running = True
     while running:
         if sheet_input in sheet_names:
@@ -39,16 +38,6 @@ def choose_sheet():
             print("Try again...")
             choose_sheet()
         running = False
-     
 
-# def bar_graph(sheet):
-#     print("bar")
-#     print(sheet)
-
-# def pie_chart(sheet):
-#     print("pie")
-#     print(sheet)
-
-
-
-choose_sheet()
+if __name__ == '__main__':
+    choose_sheet()
