@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import re
 
-
 def pie_chart(sheet):
     print("Found sheet by the name of " + sheet)
     sheet_name = pd.read_excel("UFC_rankings.xlsx", sheet_name=sheet)
