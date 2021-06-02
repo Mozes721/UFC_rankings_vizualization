@@ -4,7 +4,6 @@ import pandas as pd
 import numpy as np
 import re
 
-
 def bar_graph(sheet):
     print("Found: " + sheet)
     #get just the fighter and Record
