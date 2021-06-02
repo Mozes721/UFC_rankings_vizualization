@@ -16,12 +16,10 @@ def bar_graph(sheet):
     record = []
     #assign dataframe values in its corresponding array variable
     for index, row in df.iterrows():
-        print(row["Fighter"], row["Record"])
+        #print(row["Fighter"], row["Record"])
         figher_array.append(row["Fighter"])
         #use regex to just allow numbers being passed in otherwise whitespace it
         record.append(re.sub('[^0-9]',' ', row["Record"]))
-
-    print(record)
 
     wins = []
     losses = []
@@ -30,8 +28,8 @@ def bar_graph(sheet):
         wins.append(won.split(' ')[0])
     for loss in record:
         losses.append(loss.split(' ')[1])
-    print(wins)
-    print(losses)
+    #print(wins)
+    #print(losses)
     
 
     # #change to integers
